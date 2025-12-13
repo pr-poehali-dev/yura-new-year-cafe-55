@@ -42,26 +42,7 @@ const menuItems = {
   ],
 };
 
-const promotions = [
-  {
-    title: 'Счастливые часы',
-    description: 'С 14:00 до 16:00 двойная порция мороженого!',
-    icon: '🎁',
-    color: 'bg-red-100 border-red-300'
-  },
-  {
-    title: 'Новогодний завтрак',
-    description: 'До 31 декабря - яичница + кофе + сок в подарок',
-    icon: '🎄',
-    color: 'bg-green-100 border-green-300'
-  },
-  {
-    title: 'Семейный день',
-    description: 'По выходным - бесплатный десерт для детей',
-    icon: '👨‍👩‍👧‍👦',
-    color: 'bg-yellow-100 border-yellow-300'
-  },
-];
+
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -104,7 +85,7 @@ const Index = () => {
               <h1 className="text-3xl font-bold text-red-600">Кафе-55</h1>
             </div>
             <div className="flex gap-6">
-              {['home', 'menu', 'about', 'promo', 'contacts', 'admin'].map((section) => (
+              {['home', 'menu', 'contacts', 'admin'].map((section) => (
                 <button
                   key={section}
                   onClick={() => setActiveSection(section)}
@@ -116,8 +97,6 @@ const Index = () => {
                 >
                   {section === 'home' && '🏠 Главная'}
                   {section === 'menu' && '📋 Меню'}
-                  {section === 'about' && '💫 О нас'}
-                  {section === 'promo' && '🎁 Акции'}
                   {section === 'contacts' && '📞 Контакты'}
                   {section === 'admin' && '⚙️ Админ'}
                 </button>
@@ -221,80 +200,7 @@ const Index = () => {
         </div>
       )}
 
-      {activeSection === 'about' && (
-        <div className="container mx-auto px-4 py-12 max-w-4xl">
-          <h2 className="text-5xl font-bold text-center text-red-600 mb-8">
-            💫 О кафе-55
-          </h2>
-          
-          <Card className="p-8 mb-8 border-4 border-yellow-400 bg-gradient-to-br from-white to-yellow-50">
-            <div className="text-center mb-6">
-              <span className="text-7xl">🎄</span>
-            </div>
-            <p className="text-lg text-gray-700 leading-relaxed mb-4">
-              Кафе-55 — это уютное семейное кафе с новогодней атмосферой. 
-              Мы открылись в декабре 2025 года с миссией дарить людям радость и тепло 
-              в самый волшебный месяц года.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed mb-4">
-              Весь декабрь у нас действует специальная акция — всё меню абсолютно бесплатно! 
-              Это наш подарок жителям города к Новому Году.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Приходите к нам всей семьёй, встречайтесь с друзьями, 
-              наслаждайтесь вкусной едой и праздничной атмосферой! ❄️
-            </p>
-          </Card>
 
-          <div className="grid grid-cols-3 gap-6">
-            <Card className="p-6 text-center border-2 border-red-300">
-              <div className="text-4xl mb-3">⏰</div>
-              <h3 className="font-bold text-lg mb-2">Режим работы</h3>
-              <p className="text-gray-600">Ежедневно<br/>9:00 - 23:00</p>
-            </Card>
-            <Card className="p-6 text-center border-2 border-green-300">
-              <div className="text-4xl mb-3">👨‍🍳</div>
-              <h3 className="font-bold text-lg mb-2">Наши повара</h3>
-              <p className="text-gray-600">Профессионалы<br/>с 10+ лет опыта</p>
-            </Card>
-            <Card className="p-6 text-center border-2 border-yellow-300">
-              <div className="text-4xl mb-3">🎉</div>
-              <h3 className="font-bold text-lg mb-2">Атмосфера</h3>
-              <p className="text-gray-600">Уютная<br/>и праздничная</p>
-            </Card>
-          </div>
-        </div>
-      )}
-
-      {activeSection === 'promo' && (
-        <div className="container mx-auto px-4 py-12 max-w-4xl">
-          <h2 className="text-5xl font-bold text-center text-red-600 mb-8">
-            🎁 Акции и спецпредложения
-          </h2>
-          
-          <div className="space-y-6">
-            {promotions.map((promo, idx) => (
-              <Card key={idx} className={`p-8 border-4 ${promo.color} hover:scale-105 transition-all`}>
-                <div className="flex items-start gap-6">
-                  <div className="text-6xl">{promo.icon}</div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold mb-3 text-gray-800">{promo.title}</h3>
-                    <p className="text-lg text-gray-700">{promo.description}</p>
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
-
-          <Card className="mt-8 p-8 bg-gradient-to-br from-red-600 to-green-700 text-white border-4 border-yellow-400">
-            <div className="text-center">
-              <h3 className="text-3xl font-bold mb-4">🎄 Главная акция декабря! 🎄</h3>
-              <p className="text-xl mb-2">ВСЁ МЕНЮ БЕСПЛАТНО</p>
-              <p className="text-lg">С 1 по 31 декабря 2025</p>
-            </div>
-          </Card>
-        </div>
-      )}
 
       {activeSection === 'contacts' && (
         <div className="container mx-auto px-4 py-12 max-w-4xl">
