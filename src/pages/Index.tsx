@@ -66,6 +66,9 @@ const Index = () => {
   }, []);
 
   const addOrder = (item: string, category: string) => {
+    const audio = new Audio('/ding.mp3');
+    audio.play().catch(() => {});
+    
     const newOrder = {
       id: Date.now(),
       item,
